@@ -1,0 +1,92 @@
+'use strict';
+
+var User = require('../models/user');
+var Site = require('../models/site');
+var Mongo = require('mongodb');
+
+exports.index = function(req, res){
+  Site.index(function(sites){
+    User.findById(req.session.userId, function(err, user){
+      res.render('sites/index', {title: 'All Sample Models', sites:sites, user:user});
+    });
+  });
+};
+
+exports.createPage = function(req, res){
+  if(req.session.userId){
+    User.findById(req.session.userId, function(err, user){
+      res.render('sites/create', {title:'Add a New Sample Model', user:user});
+    });
+  } else {
+    res.render('users/auth', {title:'Register/Login'});
+  }
+};
+
+exports.create = function(req, res){
+  var site =  {
+    title: req.body.title || 'default setting'
+  };
+  var userIdString = req.session.userId.toString();
+  var imageFile = req.body.imageFile || req.files.imageFile.path;
+  User.findById(userIdString, function(userErr, user){
+    if(typeof userErr === 'string'){
+      res.render('sites/create', {title:'Add a New Sample Model', err:userErr, user:user});
+    } else {
+      var s1 = new Site(site);
+      s1.addUser(user._id);
+      s1.insert(function(modelErr, records){
+        if(typeof modelErr === 'string'){
+          res.render('sites/create', {title:'Add a New Sample Model', err:modelErr, user:user});
+        } else {
+          var u1 = new User(user);
+          u1._id = user._id;
+          u1.addSite(s1._id);
+          s1.addImage(imageFile, function(err){
+            u1.update(function(err, userRecord){
+              s1.update(function(err, siteRecord){
+                res.redirect('sites/' + s1._id.toString());
+              });
+            });
+          });
+        }
+      });
+    }
+  });
+};
+
+exports.edit = function(req, res){
+  Site.findById(req.params.id, function(site){
+    User.findById(req.session.userId, function(err, user){
+      res.render('sites/edit', {title:'Edit a Sample Model', site:site, user:user});
+    });
+  });
+};
+
+exports.update = function(req, res){
+  var s1 = new Site(req.body.site || req.body);
+  var imageFile = req.body.imageFile || req.files.imageFile.path;
+  s1._id = new Mongo.ObjectID(req.params.id);
+  s1.addImage(imageFile, function(err){
+    s1.update(function(record){
+      res.redirect('/sites/' + req.params.id);
+    });
+  });
+};
+
+exports.remove = function(req, res){
+  Site.destroy(req.params.id, function(err, count){
+    res.redirect('/sites');
+  });
+};
+
+exports.show = function(req, res){
+  User.findById(req.session.userId, function(err, user){
+    Site.findById(req.params.id, function(site){
+      if(site){
+        res.render('sites/show', {title:'Sample Model Show', site:site, user:user});
+      } else {
+        res.render('sites/', {title:'Sample Models', err:'site not found', user:user});
+      }
+    });
+  });
+};

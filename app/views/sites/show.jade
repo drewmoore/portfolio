@@ -1,0 +1,9 @@
+extends ../shared/template
+
+block content
+  h1= site.title
+  img(src=site.image)
+  if user
+    a(href='/sites/edit/' + site._id) Edit
+    form(action='/sites/delete/' + site._id, method='post')
+      button Delete

@@ -1,0 +1,10 @@
+extends ../shared/template
+block content
+
+  .row
+    each site in sites
+      a(href="/sites/" + site._id.toString())
+        div
+          img(src=site.image)
+          p= site.title
+
