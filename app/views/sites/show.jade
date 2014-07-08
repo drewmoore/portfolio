@@ -3,6 +3,8 @@ extends ../shared/template
 block content
   h1= site.title
   img(src=site.image)
+  a(href=site.url) Web
+  a(href=site.github) Github
   if user
     a(href='/sites/edit/' + site._id) Edit
     form(action='/sites/delete/' + site._id, method='post')

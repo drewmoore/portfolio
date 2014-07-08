@@ -57,7 +57,10 @@ describe('site', function(){
   describe('create site', function(){
     it('should create a new Site object, add to DB', function(done){
       var site = {
-        title: 'title'
+        title: 'title',
+        description: 'description of the site.',
+        url: 'http://druflix.andrewwilliammoore.com',
+        github: 'https://github.com/drewmoore/druflix'
       };
       var imageFile = __dirname + '/../fixtures/test-copy.jpg';
       request(app)
@@ -73,7 +76,10 @@ describe('site', function(){
   describe('update site', function(){
     it('should update a Site in DB', function(done){
       var site = {
-        title: 'title'
+        title: 'title',
+        description: 'description of the site.',
+        url: 'http://druflix.andrewwilliammoore.com',
+        github: 'https://github.com/drewmoore/druflix'
       };
       var imageFile = __dirname + '/../fixtures/test-copy.jpg';
       request(app)
@@ -82,6 +88,9 @@ describe('site', function(){
       .send({site:site, imageFile:imageFile})
       .end(function(err, res){
         site.title = 'title edited';
+        site.description = 'description edited';
+        site.url = 'http://nytimes.com';
+        site.github = 'http://theonion.com';
         var sitePathSplit = res.header.location.split('/');
         var siteId = sitePathSplit[sitePathSplit.length - 1];
         request(app)

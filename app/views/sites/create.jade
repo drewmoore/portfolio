@@ -18,9 +18,15 @@ block content
         .small-12.columns
           form(action='/sites/create', method='post', enctype='multipart/form-data')
             fieldset
-              legend Add a Sample Model
-                label Type Whatever
-                input(name='title', type='text', value='a bunch of stuff')
-                label Upload an Image
+              legend Add a Site
+                label Title
+                input(name='title', type='text', value='title it...')
+                label Description
+                input(name='description', type='textbox', value='describe it...')
+                label Site URL
+                input(name='url', type='text', value='http://')
+                label Github URL
+                input(name='github', type='text', value='https://github.com/drewmoore/')
+                label Upload a Screenshot
                 input(name='imageFile', type='file')
-                button Add the Sample Model
+                button Add the Site, yo!

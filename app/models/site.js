@@ -9,8 +9,11 @@ var fs = require('fs');
 module.exports = Site;
 
 function Site(site){
-  this.title = site.title;
+  this.title = site.title || '';
   this.userId = '';
+  this.description = site.description || '';
+  this.url = site.url || '';
+  this.github =site.github || '';
 }
 
 Site.index = function(fn){

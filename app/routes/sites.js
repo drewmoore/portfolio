@@ -7,7 +7,7 @@ var Mongo = require('mongodb');
 exports.index = function(req, res){
   Site.index(function(sites){
     User.findById(req.session.userId, function(err, user){
-      res.render('sites/index', {title: 'All Sample Models', sites:sites, user:user});
+      res.render('sites/index', {title: 'All Sites', sites:sites, user:user});
     });
   });
 };
@@ -15,7 +15,7 @@ exports.index = function(req, res){
 exports.createPage = function(req, res){
   if(req.session.userId){
     User.findById(req.session.userId, function(err, user){
-      res.render('sites/create', {title:'Add a New Sample Model', user:user});
+      res.render('sites/create', {title:'Add a New Site', user:user});
     });
   } else {
     res.render('users/auth', {title:'Register/Login'});
@@ -24,19 +24,22 @@ exports.createPage = function(req, res){
 
 exports.create = function(req, res){
   var site =  {
-    title: req.body.title || 'default setting'
+    title: req.body.title || '',
+    description: req.body.description || '',
+    url: req.body.url || '',
+    github: req.body.github || ''
   };
   var userIdString = req.session.userId.toString();
   var imageFile = req.body.imageFile || req.files.imageFile.path;
   User.findById(userIdString, function(userErr, user){
     if(typeof userErr === 'string'){
-      res.render('sites/create', {title:'Add a New Sample Model', err:userErr, user:user});
+      res.render('sites/create', {title:'Add a New Site', err:userErr, user:user});
     } else {
       var s1 = new Site(site);
       s1.addUser(user._id);
       s1.insert(function(modelErr, records){
         if(typeof modelErr === 'string'){
-          res.render('sites/create', {title:'Add a New Sample Model', err:modelErr, user:user});
+          res.render('sites/create', {title:'Add a New Site', err:modelErr, user:user});
         } else {
           var u1 = new User(user);
           u1._id = user._id;
@@ -57,7 +60,7 @@ exports.create = function(req, res){
 exports.edit = function(req, res){
   Site.findById(req.params.id, function(site){
     User.findById(req.session.userId, function(err, user){
-      res.render('sites/edit', {title:'Edit a Sample Model', site:site, user:user});
+      res.render('sites/edit', {title:'Edit a Site', site:site, user:user});
     });
   });
 };
@@ -83,9 +86,9 @@ exports.show = function(req, res){
   User.findById(req.session.userId, function(err, user){
     Site.findById(req.params.id, function(site){
       if(site){
-        res.render('sites/show', {title:'Sample Model Show', site:site, user:user});
+        res.render('sites/show', {title:'Site Show', site:site, user:user});
       } else {
-        res.render('sites/', {title:'Sample Models', err:'site not found', user:user});
+        res.render('sites/', {title:'Sites', err:'site not found', user:user});
       }
     });
   });

@@ -34,10 +34,14 @@ describe('Site', function(){
     it('should create a new Site object', function(done){
       var u1 = new User({email:'test@nomail.com', name:'sample', password:'1234'});
       u1.register(function(err, body){
-        var s1 = new Site({title: 'stuff'});
+        var s1 = new Site({title: 'Site Title', description: 'Description of the Site', url: 'http://druflix.andrewwilliammoore.com',
+        github: 'https://github.com/drewmoore/druflix'});
         s1.addUser(u1._id);
         expect(s1).to.be.instanceof(Site);
-        expect(s1.title).to.equal('stuff');
+        expect(s1.title).to.equal('Site Title');
+        expect(s1.description).to.equal('Description of the Site');
+        expect(s1.url).to.equal('http://druflix.andrewwilliammoore.com');
+        expect(s1.github).to.equal('https://github.com/drewmoore/druflix');
         expect(s1.userId).to.equal(u1._id.toString());
         done();
       });
@@ -47,10 +51,16 @@ describe('Site', function(){
     it('should add a new Site record to the database', function(done){
       var u1 = new User({email:'test@nomail.com', name:'Test', password:'1234'});
       u1.register(function(err, body){
-        var s1 = new Site({title: 'stuff', userId:u1._id});
+        var s1 = new Site({title: 'Site Title', description: 'Description of the Site', url: 'http://druflix.andrewwilliammoore.com',
+        github: 'https://github.com/drewmoore/druflix'});
+        s1.addUser(u1._id);
         s1.insert(function(err, records){
           expect(s1._id).to.be.instanceof(Mongo.ObjectID);
           expect(records[0].title).to.equal(s1.title);
+          expect(records[0].description).to.equal(s1.description);
+          expect(records[0].url).to.equal(s1.url);
+          expect(records[0].github).to.equal(s1.github);
+          expect(records[0].userId).to.equal(u1._id.toString());
           done();
         });
       });

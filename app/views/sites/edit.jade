@@ -6,10 +6,17 @@ block content
         form(action='/sites/update/' + site._id.toString(), method='post', enctype='multipart/form-data')
           fieldset
             legend Edit Sample Model
-              label Whatever
+              label Title
               input(name='title', type='text', value=site.title)
-              label Upload an Image
+              label Description
+              input(name='description', type='textbox', value=site.description)
+              label Site URL
+              input(name='url', type='text', value=site.url)
+              label Github URL
+              input(name='github', type='text', value=site.github)
+              label Change Screenshot
               input(name='imageFile', type='file')
               input(name='userId', type='hidden', value=site.userId)
               input(name='id', type='hidden', value=site._id.toString())
               button Update
+

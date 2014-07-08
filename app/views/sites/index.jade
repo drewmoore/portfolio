@@ -3,8 +3,11 @@ block content
 
   .row
     each site in sites
-      a(href="/sites/" + site._id.toString())
-        div
+      div
+        a(href="/sites/" + site._id.toString())
           img(src=site.image)
-          p= site.title
+          h5= site.title
+          strong= site.description
+        a(href=site.url) Web
+        a(href=site.github) Github
 
