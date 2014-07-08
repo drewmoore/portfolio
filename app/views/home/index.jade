@@ -1,4 +1,19 @@
 extends ../shared/template
 block content
-  h1= title
+  .row
+    .window.small-12.columns
+      .row.header
+        h1 Drew Moore
+        h5 Web Developer
+      .row.body
+        .columns.side-panel
+          ul
+            li something
+            li other thing
+        .columns.scroll-panel
+          .scroll-menu
+            ul
+              - for (var i = 0; i < 100; ++i) {
+                li= i
+              - }
 
