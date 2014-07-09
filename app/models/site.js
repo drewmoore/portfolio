@@ -13,7 +13,9 @@ function Site(site){
   this.userId = '';
   this.description = site.description || '';
   this.url = site.url || '';
-  this.github =site.github || '';
+  this.github = site.github || '';
+  this.framework = site.framework || '';
+  this.host = site.host || '';
 }
 
 Site.index = function(fn){

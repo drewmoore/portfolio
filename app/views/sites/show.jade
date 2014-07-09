@@ -5,6 +5,9 @@ block content
   img(src=site.image)
   a(href=site.url) Web
   a(href=site.github) Github
+  p= site.description
+  strong= site.framework
+  strong= site.host
   if user
     a(href='/sites/edit/' + site._id) Edit
     form(action='/sites/delete/' + site._id, method='post')

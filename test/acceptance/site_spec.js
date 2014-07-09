@@ -60,7 +60,9 @@ describe('site', function(){
         title: 'title',
         description: 'description of the site.',
         url: 'http://druflix.andrewwilliammoore.com',
-        github: 'https://github.com/drewmoore/druflix'
+        github: 'https://github.com/drewmoore/druflix',
+        framework: 'Node',
+        host: 'Amazon EC2, Ubuntu Server'
       };
       var imageFile = __dirname + '/../fixtures/test-copy.jpg';
       request(app)
@@ -79,7 +81,9 @@ describe('site', function(){
         title: 'title',
         description: 'description of the site.',
         url: 'http://druflix.andrewwilliammoore.com',
-        github: 'https://github.com/drewmoore/druflix'
+        github: 'https://github.com/drewmoore/druflix',
+        framework: 'Node',
+        host: 'Amazon EC2, Ubuntu Server'
       };
       var imageFile = __dirname + '/../fixtures/test-copy.jpg';
       request(app)
