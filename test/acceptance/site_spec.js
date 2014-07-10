@@ -62,7 +62,8 @@ describe('site', function(){
         url: 'http://druflix.andrewwilliammoore.com',
         github: 'https://github.com/drewmoore/druflix',
         framework: 'Node',
-        host: 'Amazon EC2, Ubuntu Server'
+        host: 'Amazon EC2, Ubuntu Server',
+        priority: 1
       };
       var imageFile = __dirname + '/../fixtures/test-copy.jpg';
       request(app)
@@ -83,7 +84,8 @@ describe('site', function(){
         url: 'http://druflix.andrewwilliammoore.com',
         github: 'https://github.com/drewmoore/druflix',
         framework: 'Node',
-        host: 'Amazon EC2, Ubuntu Server'
+        host: 'Amazon EC2, Ubuntu Server',
+        priority: 1
       };
       var imageFile = __dirname + '/../fixtures/test-copy.jpg';
       request(app)

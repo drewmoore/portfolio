@@ -29,7 +29,8 @@ exports.create = function(req, res){
     url: req.body.url || '',
     github: req.body.github || '',
     framework: req.body.framework || '',
-    host: req.body.host || ''
+    host: req.body.host || '',
+    priority: req.body.priority || 5
   };
   var userIdString = req.session.userId.toString();
   var imageFile = req.body.imageFile || req.files.imageFile.path;

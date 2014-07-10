@@ -16,6 +16,7 @@ function Site(site){
   this.github = site.github || '';
   this.framework = site.framework || '';
   this.host = site.host || '';
+  this.priority = site.priority || 5;
 }
 
 Site.index = function(fn){

@@ -35,7 +35,7 @@ describe('Site', function(){
       var u1 = new User({email:'test@nomail.com', name:'sample', password:'1234'});
       u1.register(function(err, body){
         var s1 = new Site({title: 'Site Title', description: 'Description of the Site', url: 'http://druflix.andrewwilliammoore.com',
-        github: 'https://github.com/drewmoore/druflix', framework: 'Node', host: 'Amazon EC2, Ubuntu'});
+        github: 'https://github.com/drewmoore/druflix', framework: 'Node', host: 'Amazon EC2, Ubuntu', priority: 1});
         s1.addUser(u1._id);
         expect(s1).to.be.instanceof(Site);
         expect(s1.title).to.equal('Site Title');
@@ -44,6 +44,7 @@ describe('Site', function(){
         expect(s1.github).to.equal('https://github.com/drewmoore/druflix');
         expect(s1.framework).to.equal('Node');
         expect(s1.host).to.equal('Amazon EC2, Ubuntu');
+        expect(s1.priority).to.equal(1);
         expect(s1.userId).to.equal(u1._id.toString());
         done();
       });
@@ -54,7 +55,7 @@ describe('Site', function(){
       var u1 = new User({email:'test@nomail.com', name:'Test', password:'1234'});
       u1.register(function(err, body){
         var s1 = new Site({title: 'Site Title', description: 'Description of the Site', url: 'http://druflix.andrewwilliammoore.com',
-        github: 'https://github.com/drewmoore/druflix', framework: 'Node', host: 'Amazon EC2, Ubuntu'});
+        github: 'https://github.com/drewmoore/druflix', framework: 'Node', host: 'Amazon EC2, Ubuntu', priority: 1});
         s1.addUser(u1._id);
         s1.insert(function(err, records){
           expect(s1._id).to.be.instanceof(Mongo.ObjectID);
@@ -64,6 +65,7 @@ describe('Site', function(){
           expect(records[0].github).to.equal(s1.github);
           expect(records[0].framework).to.equal(s1.framework);
           expect(records[0].host).to.equal(s1.host);
+          expect(records[0].priority).to.equal(s1.priority);
           expect(records[0].userId).to.equal(u1._id.toString());
           done();
         });

@@ -31,6 +31,11 @@ block content
                 input(name='framework', type='text', value='Node / Rails')
                 label Host
                 input(name='host', type='text', value='Amazon EC2, Ubuntu Server / Heroku')
+                label Priority: 1 highest, 5 lowest
+                select(name='priority')
+                  - for (var i = 1; i <= 5; ++i) {
+                      option(value=i) #{i}
+                  - }
                 label Upload a Screenshot
                 input(name='imageFile', type='file')
                 button Add the Site, yo!
