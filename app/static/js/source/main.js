@@ -11,7 +11,7 @@
 
   function mouseOnMenu(event) {
     var mouseY = event.pageY;
-    var $container = $(this);
+    var $container = $($('.scroll-panel')[0]);
     var containerHeight = parseInt(($container.css('height').split('p')[0]));
     var borderWidth = parseInt(($container.css('border').split('p')[0]));
     var containerTop = $container.offset().top;
@@ -25,7 +25,7 @@
     var $scrollMenu = $($('.scroll-menu')[0]);
     var scrollMenuHeight = parseInt(($scrollMenu.css('height').split('p')[0]));
     var menuElementsCount = $('.scroll-menu > ul > li').children().length;
-    var scrollInt = scrollMenuHeight / (menuElementsCount / 1.5);
+    var scrollInt = scrollMenuHeight / (menuElementsCount * 4);
     var scrollMenuTop = Math.abs(parseInt($scrollMenu.position().top));
     var amountToScroll;
     var scrollDiff;

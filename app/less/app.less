@@ -1,6 +1,8 @@
 @bg-color: rgba(12, 10, 10, 1);
 @shadow-color: rgba(150, 150, 150, .7);
 @border-radius: 7px;
+@font-color: rgba(200, 200, 200, .9);
+@deep-red: rgba(100, 0, 0, .3);
 
 @font-face {
   font-family: "PaintCans";
@@ -14,6 +16,7 @@
 
 body {
   background-color: @bg-color;
+  color: @font-color;
 }
 
 h1, h5 {
@@ -32,10 +35,6 @@ h5 {
 }
  ul {
   list-style-type: none;
- }
-
- li > img {
-  width: 10%;
  }
 
  input[type=textarea] {
@@ -108,5 +107,82 @@ h5 {
   width: 100%;
   border-radius: @border-radius;
   background-color: rgba(03, 03, 03, .7);
-  padding: 6em 1em;
+  padding: 3em 1em;
+}
+
+.site-container {
+  position: relative;
+  margin: 5em auto;
+  padding: 1em;
+  min-height: 15em;
+  border-radius: @border-radius;
+  background-color: @deep-red;
+  //border: 1px solid pink;
+}
+
+.site-left-panel {
+  position: relative;
+  min-height: 15em;
+  width: 25%;
+  text-align: center;
+}
+
+.site-image {
+  width: 95%;
+  margin: 2em auto;
+}
+
+.site-links {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 100%;
+}
+
+.site-links > a {
+  margin: .5em;
+}
+
+a.web {
+  float: left;
+}
+
+a.github {
+  float: right;
+}
+
+.site-info {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 70%;
+  height: 100%;
+  padding: 1em;
+}
+
+.site-info > div {
+  position: absolute;
+  bottom: 1em;
+  width: 90%;
+}
+
+.site-info > h5 {
+  margin: .8em auto;
+}
+
+.site-info > p {
+  font-size: .9em;
+}
+
+.site-info-label {
+  float: left;
+}
+
+.site-info-value {
+  float: right;
+}
+
+.clear {
+  clear: both;
 }

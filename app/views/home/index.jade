@@ -15,12 +15,22 @@ block content
           .scroll-menu
             ul
               each site in sites
-                li
-                  img(src=site.image)
-                  h5= site.title
-                  p= site.description
-                  strong= site.framework
-                  strong= site.host
-                  a(href=site.url) Web
-                  a(href=site.github) Github
+                li.site-container
+                  .site-left-panel
+                    img.site-image(src=site.image)
+                    .site-links
+                      a.web(href=site.url, target='_blank') Web
+                      a.github(href=site.github, target='_blank') Github
+                  .site-info
+                    h5= site.title
+                    p= site.description
+                    div
+                      div
+                        strong.site-info-label Framework: &nbsp;
+                        strong.site-info-value= site.framework
+                      .clear
+                      div
+                        strong.site-info-label Host: &nbsp;
+                        strong.site-info-value= site.host
+
 
