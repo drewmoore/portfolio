@@ -14,6 +14,13 @@ block content
         .columns.scroll-panel
           .scroll-menu
             ul
-              - for (var i = 0; i < 100; ++i) {
-                li= i
-              - }
+              each site in sites
+                li
+                  img(src=site.image)
+                  h5= site.title
+                  p= site.description
+                  strong= site.framework
+                  strong= site.host
+                  a(href=site.url) Web
+                  a(href=site.github) Github
+
