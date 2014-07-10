@@ -3,6 +3,8 @@
 @border-radius: 7px;
 @font-color: rgba(200, 200, 200, .9);
 @deep-red: rgba(100, 0, 0, .3);
+@site-container-min-height: 18em;
+@blue: #22aeaf;
 
 @font-face {
   font-family: "PaintCans";
@@ -12,6 +14,11 @@
 @font-face {
   font-family: "RapScript";
   src: url("/css/fonts/RapScript.otf");
+}
+
+@font-face {
+  font-family: "Play-Bold";
+  src: url("/css/fonts/Play-Bold.ttf");
 }
 
 body {
@@ -114,7 +121,7 @@ h5 {
   position: relative;
   margin: 5em auto;
   padding: 1em;
-  min-height: 15em;
+  min-height: @site-container-min-height;
   border-radius: @border-radius;
   background-color: @deep-red;
   //border: 1px solid pink;
@@ -122,7 +129,7 @@ h5 {
 
 .site-left-panel {
   position: relative;
-  min-height: 15em;
+  min-height: @site-container-min-height;
   width: 25%;
   text-align: center;
 }
@@ -141,6 +148,9 @@ h5 {
 
 .site-links > a {
   margin: .5em;
+  font-family: "Play-Bold";
+  text-shadow: 0px 0px 10px rgba(255, 175, 190, 1);
+  color: @blue;
 }
 
 a.web {
@@ -169,6 +179,9 @@ a.github {
 
 .site-info > h5 {
   margin: .8em auto;
+  font-size: 2em;
+  font-family: "Play-Bold";
+  text-shadow: 0px 0px 10px rgba(255, 175, 190, 1);
 }
 
 .site-info > p {

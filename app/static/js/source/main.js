@@ -25,7 +25,7 @@
     var $scrollMenu = $($('.scroll-menu')[0]);
     var scrollMenuHeight = parseInt(($scrollMenu.css('height').split('p')[0]));
     var menuElementsCount = $('.scroll-menu > ul > li').children().length;
-    var scrollInt = scrollMenuHeight / (menuElementsCount * 4);
+    var scrollInt = scrollMenuHeight / (menuElementsCount * 6);
     var scrollMenuTop = Math.abs(parseInt($scrollMenu.position().top));
     var amountToScroll;
     var scrollDiff;
