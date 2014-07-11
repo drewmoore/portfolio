@@ -25,7 +25,7 @@
     var $scrollMenu = $($('.scroll-menu')[0]);
     var scrollMenuHeight = parseInt(($scrollMenu.css('height').split('p')[0]));
     var menuElementsCount = $('.scroll-menu > ul > li').children().length;
-    var scrollInt = scrollMenuHeight / (menuElementsCount * 6);
+    var scrollInt = scrollMenuHeight / (menuElementsCount * 5.5);
     var scrollMenuTop = Math.abs(parseInt($scrollMenu.position().top));
     var amountToScroll;
     var scrollDiff;
@@ -34,11 +34,10 @@
     if((mouseDiffBottom <= scrollZoneHeight) && (scrollMenuTop < scrollTopLimit)) {
       scrollDiff = scrollTopLimit - scrollMenuTop;
       amountToScroll = scrollInt + scrollMenuTop;
-      if(amountToScroll < scrollDiff) {
-        $scrollMenu.css('top', '-' + amountToScroll +'px');
-      } else {
-        $scrollMenu.css('top', '-' + (scrollDiff + scrollMenuTop) +'px');
+      if(amountToScroll >= scrollDiff) {
+        amountToScroll = (scrollDiff / 10) + scrollMenuTop;
       }
+      $scrollMenu.css('top', '-' + amountToScroll + 'px');
     }
     if(mouseDiffTop <= scrollZoneHeight) {
       scrollDiff = scrollMenuTop - displayTop;

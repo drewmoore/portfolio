@@ -1,41 +1,25 @@
 extends ../shared/template
 block content
-  .row
-    .window.small-12.columns
-      .row.header
-        .heading-board
-          h1 Drew Moore
-          h5 Web Developer
-      .row.body
-        .columns.side-panel
-          - var menuItems = ['Sites', 'Resume', 'Contact'];
-          - var menuLinks = ['/', '/resume', '/contact']
-          - for(var i=0; i < menuItems.length; ++i) {
-              ul
-                li.menu-links
-                  a(href=menuLinks[i])
-                    strong= menuItems[i]
-          - }
-        .columns.scroll-panel
-          .scroll-menu
-            ul
-              each site in sites
-                li.site-container
-                  .site-left-panel
-                    img.site-image(src=site.image)
-                    .site-links
-                      a.web(href=site.url, target='_blank') Web
-                      a.github(href=site.github, target='_blank') Github
-                  .site-info
-                    h5= site.title
-                    p= site.description
-                    div
-                      div
-                        strong.site-info-label Framework: &nbsp;
-                        strong.site-info-value= site.framework
-                      .clear
-                      div
-                        strong.site-info-label Host: &nbsp;
-                        strong.site-info-value= site.host
+  .columns.scroll-panel
+    .scroll-menu
+      ul
+        each site in sites
+          li.site-container
+            .site-left-panel
+              img.site-image(src=site.image)
+              .site-links
+                a.web(href=site.url, target='_blank') Web
+                a.github(href=site.github, target='_blank') Github
+            .site-info
+              h5= site.title
+              p= site.description
+              div
+                div
+                  strong.site-info-label Framework: &nbsp;
+                  strong.site-info-value= site.framework
+                .clear
+                div
+                  strong.site-info-label Host: &nbsp;
+                  strong.site-info-value= site.host
 
 
