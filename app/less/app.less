@@ -3,6 +3,7 @@
 @border-radius: 7px;
 @font-color: rgba(200, 200, 200, .9);
 @deep-red: rgba(100, 0, 0, .3);
+@deep-red-solid: rgba(100, 0, 0, .8);
 @site-container-min-height: 18em;
 @blue: #22aeaf;
 
@@ -149,8 +150,28 @@ h5 {
 .site-links > a {
   margin: .5em;
   font-family: "Play-Bold";
-  text-shadow: 0px 0px 10px rgba(255, 175, 190, 1);
+  text-shadow: 0px 0px 5px rgba(255, 175, 190, .5);
   color: @blue;
+}
+
+.site-links > a:hover {
+  text-shadow: 0px 0px 10px rgba(255, 175, 190, 1);
+}
+
+.menu-links {
+  margin: 3em 0px;
+  font-size: 1.8em;
+}
+
+.menu-links > a {
+  color: @deep-red-solid;
+  font-family: "RapScript";
+  text-shadow: 0px 0px 7px rgba(255, 175, 190, .8);
+}
+
+.menu-links > a:hover {
+  color: @blue;
+  text-shadow: 0px 0px 10px rgba(255, 175, 190, .9);
 }
 
 a.web {

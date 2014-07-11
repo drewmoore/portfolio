@@ -8,9 +8,14 @@ block content
           h5 Web Developer
       .row.body
         .columns.side-panel
-          ul
-            li something
-            li other thing
+          - var menuItems = ['Sites', 'Resume', 'Contact'];
+          - var menuLinks = ['/', '/resume', '/contact']
+          - for(var i=0; i < menuItems.length; ++i) {
+              ul
+                li.menu-links
+                  a(href=menuLinks[i])
+                    strong= menuItems[i]
+          - }
         .columns.scroll-panel
           .scroll-menu
             ul
