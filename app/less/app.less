@@ -104,28 +104,27 @@ h5 {
 }
 
 .scroll-panel {
-  width: 70%;
+  width: 75%;
   padding: 0px;
   overflow: hidden;
   border: 4em solid rgba(00, 00, 00, .0);
 }
 
-.scroll-menu {
+.scroll-menu,.contact-menu {
   position: absolute;
   width: 100%;
   border-radius: @border-radius;
   background-color: rgba(03, 03, 03, .7);
-  padding: 3em 1em;
+  padding: 3em 2em;
 }
 
-.site-container {
+.site-container, .resume-section, .contact-container {
   position: relative;
   margin: 5em auto;
   padding: 1em;
   min-height: @site-container-min-height;
   border-radius: @border-radius;
   background-color: @deep-red;
-  //border: 1px solid pink;
 }
 
 .site-left-panel {
@@ -147,14 +146,14 @@ h5 {
   width: 100%;
 }
 
-.site-links > a {
+.site-links > a , .resume-section-left > a, .resume-section-right > a, .contact-container-right > a {
   margin: .5em;
   font-family: "Play-Bold";
   text-shadow: 0px 0px 5px rgba(255, 175, 190, .5);
   color: @blue;
 }
 
-.site-links > a:hover {
+.site-links > a:hover , .resume-section-left > a:hover, .resume-section-right > a:hover, .contact-container-right > a:hover {
   text-shadow: 0px 0px 10px rgba(255, 175, 190, 1);
 }
 
@@ -219,4 +218,71 @@ a.github {
 
 .clear {
   clear: both;
+}
+
+.resume-section {
+  position: relative;
+  min-height: 10em;
+  padding: 1em;
+}
+
+.resume-section-left, .resume-section-right {
+  display: inline-block;
+  bottom: 0px;
+}
+
+.resume-section-left {
+  float: left;
+}
+
+.resume-section-right {
+  float: right;
+}
+
+.resume-section > h3 {
+  margin: .3em auto .8em auto;
+  font-size: 2em;
+  font-family: "Play-Bold";
+  text-shadow: 0px 0px 10px rgba(255, 175, 190, 1);
+  text-align: center;
+}
+
+.resume-section-strong {
+  display: block;
+}
+
+.resume-section-left > a, .resume-section-right > a, .contact-container-right > a {
+  margin: 0px;
+}
+
+
+.contact-container-left > img {
+  height: 16em;
+  border-radius: @border-radius;
+}
+
+.contact-container {
+  margin: 1em auto;
+  min-height: 18em;
+}
+
+.contact-menu {
+  padding: 1em 2em;
+}
+
+.contact-container-left, .contact-container-right {
+  display: inline-block;
+}
+
+.contact-container-right {
+  position: absolute;
+  right: 0px;
+  margin: 0em 2em;
+  text-align: left;
+  width: 45%;
+}
+
+.contact-section-strong {
+  display: block;
+  margin: 2.5em 0em;
 }
