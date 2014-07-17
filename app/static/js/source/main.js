@@ -6,9 +6,10 @@
 
   function initialize(){
     $(document).foundation();
-    $('.scroll-panel').on('mouseover', mouseOnMenu);
+    //$('.scroll-panel').on('mouseover', mouseOnMenu);
   }
 
+/*
   function mouseOnMenu(event) {
     var mouseY = event.pageY;
     var $container = $($('.scroll-panel')[0]);
@@ -49,6 +50,6 @@
       }
     }
   }
-
+*/
 })();
 
