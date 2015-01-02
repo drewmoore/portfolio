@@ -1,6 +1,6 @@
 extends ../shared/template
 block content
-  .columns.scroll-panel
+  .scroll-panel
     .scroll-menu
       ul
         each site in sites
@@ -13,12 +13,12 @@ block content
             .site-info
               h5= site.title
               p= site.description
-              div
-                div
+              div.site-info-footer
+                div.site-info-data-container
                   strong.site-info-label Framework: &nbsp;
                   strong.site-info-value= site.framework
                 .clear
-                div
+                div.site-info-data-container
                   strong.site-info-label Host: &nbsp;
                   strong.site-info-value= site.host
 

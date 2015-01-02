@@ -10,6 +10,21 @@ html(class='no-js', lang='en')
     link(rel='stylesheet', href='/less/app.css')
     script(src='/js/vendor/modernizr.js')
   body
+    nav.top-bar
+      ul.title-area
+        li.name
+          h1: a(href="/") Portfolio
+        li.toggle-topbar.menu-icon
+          a(href="#") Menu
+
+      section.top-bar-section
+        ul.left
+          li: a(href='/sites') Sites Index
+        ul.right
+          li.divider
+          li: a(onclick="$('#logout-form').submit(); return false;") Logout
+            form#logout-form.hide(action='/logout', method='post')
+
     .row
       .small-12.columns
         block content

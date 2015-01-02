@@ -1,19 +1,19 @@
 extends ../shared/template
 block content
-  .columns.scroll-panel
+  .scroll-panel
     .scroll-menu
       ul
         li.resume-section
           h3 Drew Moore
           .resume-section-left
-            strong.resume-section-strong (615)828-3273
-            a(href="mailto:drew@noiseshift.com")
-              strong.resume-section-strong drew@noiseshift.com
-          .resume-section-right
+            strong.resume-section-strong.resume-heading-info (615)828-3273
+            a(href="mailto:drew@andrewwilliammoore.com")
+              strong.resume-section-strong.resume-heading-info drew @ andrewwilliammoore.com
+          .resume-section-right.float-in-portrait
             a(href="https://github.com/drewmoore/", target="_blank")
-              strong.resume-section-strong GitHub
+              strong.resume-section-strong.resume-heading-info GitHub
             a(href="https://www.linkedin.com/pub/drew-moore/99/923/103", target="_blank")
-              strong.resume-section-strong LinkedIn
+              strong.resume-section-strong.resume-heading-info LinkedIn
 
         li.resume-section
           h3 Technical Proficiencies
@@ -23,7 +23,7 @@ block content
               li.resume-bullets Ubuntu, OpenSuse Linux
               li.resume-bullets MongoDB, PostgreSQL
               li.resume-bullets Git
-          .resume-section-right
+          .resume-section-right.bullets-section
             ul
               li.resume-bullets jQuery, Javascript
               li.resume-bullets HTML 5 Audio / Video

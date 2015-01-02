@@ -44,17 +44,25 @@ Site.prototype.insert = function(fn){
 };
 Site.prototype.addImage = function(oldname, fn){
   var self = this;
-  var extension = path.extname(oldname);
-  var siteId = this._id.toString();
-  var absolutePath = __dirname + '/../static';
-  var sitesPath = absolutePath + '/img/sites';
-  var relativePath = '/img/sites/' + siteId + extension;
-  fs.mkdir(sitesPath, function(){
-    fs.rename(oldname, absolutePath + relativePath, function(err){
-      self.image = relativePath;
-      fn(err);
+  if(oldname.length > 0){
+    var extension = path.extname(oldname);
+    var siteId = this._id.toString();
+    var absolutePath = __dirname + '/../static';
+    var sitesPath = absolutePath + '/img/sites';
+    var relativePath = '/img/sites/' + siteId + extension;
+    fs.mkdir(sitesPath, function(){
+      fs.rename(oldname, absolutePath + relativePath, function(err){
+        self.image = relativePath;
+        fn(err);
+      });
     });
-  });
+  }
+  else {
+    Site.findById(self._id.toString(), function(record){
+      self.image = record.image;
+      fn();
+    });
+  }
 };
 Site.findById = function(id, fn){
   var mongoId = new Mongo.ObjectID(id);

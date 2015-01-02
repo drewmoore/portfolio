@@ -70,7 +70,11 @@ exports.edit = function(req, res){
 
 exports.update = function(req, res){
   var s1 = new Site(req.body.site || req.body);
-  var imageFile = req.body.imageFile || req.files.imageFile.path;
+  //var imageFile = req.body.imageFile || req.files.imageFile.path;
+  var imageFile = '';
+  if(req.files.imageFile.size > 0){
+    imageFile = req.body.imageFile || req.files.imageFile.path;
+  }
   s1._id = new Mongo.ObjectID(req.params.id);
   s1.addImage(imageFile, function(err){
     s1.update(function(record){

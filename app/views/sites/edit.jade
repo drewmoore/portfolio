@@ -18,6 +18,15 @@ block content
               input(name='framework', type='text', value=site.framework)
               label Host
               input(name='host', type='text', value=site.host)
+              label Priority: 1 highest, 5 lowest
+              select(name='priority', value=site.priority)
+                - for (var i = 1; i <= 5; ++i) {
+                  - if(i === parseInt(site.priority)) {
+                    option(value=i, selected=true) #{i}
+                  - } else {
+                    option(value=i) #{i}
+                  - }
+                - }
               label Change Screenshot
               input(name='imageFile', type='file')
               input(name='userId', type='hidden', value=site.userId)

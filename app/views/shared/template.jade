@@ -10,27 +10,25 @@ html(class='no-js', lang='en')
     link(rel='stylesheet', href='/less/app.css')
     script(src='/js/vendor/modernizr.js')
   body
-    .row
-      .small-12.columns
-        .row
-          .small-12.columns.main-content
-            .row
-              .window.small-12.columns
-                .row.header
-                  .heading-board
-                    h1 Drew Moore
-                    h5 Web Developer
-                .row.body
-                  .columns.side-panel
-                    - var menuItems = ['Sites', 'Resume', 'Contact'];
-                    - var menuLinks = ['/', '/resume', '/contact']
-                    - for(var i=0; i < menuItems.length; ++i) {
-                        ul
-                          li.menu-links
-                            a(href=menuLinks[i])
-                              strong= menuItems[i]
-                    - }
-                  block content
+    .row.full-height
+      .small-12.columns.main-content
+        .row.full-width.full-height
+          .window.small-12.columns
+            .row.header
+              .heading-board
+                h1 Drew Moore
+                h5 Web Developer
+            .row.body
+              .side-panel
+                ul
+                  - var menuItems = ['Sites', 'Resume', 'Contact'];
+                  - var menuLinks = ['/', '/resume', '/contact']
+                  - for(var i=0; i < menuItems.length; ++i) {
+                    li.menu-links
+                      a(href=menuLinks[i])
+                        strong= menuItems[i]
+                  - }
+              block content
 
     script(src='/js/vendor/jquery.js')
     script(src='/js/vendor/foundation.min.js')

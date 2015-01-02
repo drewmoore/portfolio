@@ -26,6 +26,8 @@
 }
 
 html, body {
+  width: 100%;
+  height: 100%;
   scrollbar-width: .66em;
   scrollbar-track-color: @stained-glass-dark;
   scrollbar-face-color: @deep-red-solid;
@@ -33,15 +35,15 @@ html, body {
   scrollbar-3dlight-color: @red-shadow;
   scrollbar-shadow-color: @stained-glass-dark;
   scrollbar-darkshadow-color: @deep-red;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
-     width: .66em;
+     width: .50rem;
 }
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px @stained-glass-dark;
     border-radius: @border-radius;
-    //background-color: rgba(10, 10, 10, .2);
     background-color: @stained-glass-dark;
 }
 ::-webkit-scrollbar-track:active {
@@ -75,25 +77,36 @@ h1 {
 h5 {
   font-size: 1.5em;
 }
- ul {
+ul {
   list-style-type: none;
- }
+}
 
- input[type=textarea] {
+input[type=textarea] {
   width: 100%;
   height: 12em;
- }
+}
 
- a {
+a {
   color: @blue;
- }
+}
+
+.full-height {
+  height: 100%;
+}
+.full-width {
+  width: 100%;
+}
+
+.main-content {
+  height: 100%;
+}
 
 .window {
   position: relative;
   margin: 1em auto;
   width: 100%;
-  min-height: 40em;
-  max-height: 40em;
+  min-height: 95%;
+  max-height: 95%;
   box-shadow: 0px 0px 6px 4px @shadow-color;
   border-radius: 2px;
   background: url("/img/window.png");
@@ -108,9 +121,10 @@ h5 {
 }
 
 .header {
-  top: 0px;
-  max-height: 9em;
+  top: 1%;
   text-align: center;
+  min-height: 20%;
+  max-height: 20%;
 }
 
 .heading-board {
@@ -122,28 +136,47 @@ h5 {
 }
 
 .body {
-  bottom: 0px;
-  min-height: 31em;
-  max-height: 31em;
+  bottom: 1%;
+  min-height: 75%;
+  max-height: 75%;
 }
 
 .body .columns {
-  min-height: 30.5em;
-  max-height: 30.5em;
-  background-color: rgba(05, 05, 05, .7);
-  border-radius: @border-radius;
+  //min-height: 30.5em;
+  //max-height: 30.5em;
+  min-height: 75%;
+  max-height: 75%;
   margin: .2em;
 }
 
+.side-panel, .scroll-panel {
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(05, 05, 05, .7);
+  border-radius: @border-radius;
+  min-height: 98%;
+  max-height: 98%;
+}
 .side-panel {
   width: 20%;
+  left: 0%;
+}
+.side-panel > ul {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 96%;
+  max-height: 96%;
+  position: absolute;
 }
 
 .scroll-panel {
-  width: 75%;
+  position: absolute;
+  min-width: 75%;
+  max-width: 75%;
   padding: 0px;
   overflow: auto;
   border: 4em solid rgba(00, 00, 00, .0);
+  right: 1%;
 }
 
 .scroll-menu, .contact-menu {
@@ -194,8 +227,12 @@ h5 {
 }
 
 .menu-links {
-  margin: 3em 0px;
+  margin: 31% 0px;
   font-size: 1.8em;
+  min-height: 30%;
+  max-height: 30%;
+  min-width: 100%;
+  max-width: 100%;
 }
 
 .menu-links > a {
@@ -204,7 +241,7 @@ h5 {
   text-shadow: 0px 0px 7px rgba(255, 175, 190, .8);
 }
 
-.menu-links > a:hover {
+.menu-links > a:hover, .menu-links > a:active {
   color: @blue;
   text-shadow: 0px 0px 10px rgba(255, 175, 190, .9);
 }
@@ -230,6 +267,9 @@ a.github {
 .site-info > div {
   position: absolute;
   bottom: 1em;
+}
+
+.site-info-data-container {
   width: 90%;
 }
 
@@ -242,6 +282,9 @@ a.github {
 
 .site-info > p {
   font-size: @reading-size;
+  min-height: 49%;
+  max-height: 49%;
+  overflow-y: auto;
 }
 
 .site-info-label {
@@ -261,6 +304,7 @@ a.github {
   min-height: 10em;
   padding: 1em;
   margin: 3em auto;
+  overflow: auto;
 }
 
 .resume-section-left, .resume-section-right {
@@ -326,12 +370,14 @@ a.github {
   right: 0px;
   margin: 0em 2em;
   text-align: left;
-  width: 45%;
+  width: 55%;
 }
 
 .contact-section-strong {
   display: block;
-  margin: 2.5em 0em;
+  margin: 1.8em 0em;
+  font-size: 1.2em;
+  font-family: "Play-Bold";
 }
 
 .resume-certificate {
@@ -349,4 +395,118 @@ a.github {
   list-style-type: square;
   font-size: @reading-size;
   margin: 0px 1em;
+}
+
+@media (min-width: 801px) {
+  body {
+    font-size: 14px;
+  }
+  .menu-links > a > strong {
+    font-size: 98%;
+  }
+  .menu-links {
+    margin: 40% 0px;
+  }
+  .side-panel {
+    padding-left: 1%;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    font-size: 7px;
+  }
+  .menu-links > a > strong {
+    font-size: 60%;
+  }
+  .menu-links {
+    margin: 16% 0px;
+  }
+  .site-info > h5 {
+    font-size: 1.3em;
+  }
+  .site-info > p {
+    font-size: 0.8em;
+    min-height: 50%;
+    max-height: 50%;
+  }
+  .site-info-label, .site-info-value {
+    font-size: 0.7em;
+  }
+  .site-links {
+    font-size: 0.7em;
+  }
+  a.github {
+    float: left;
+  }
+  ::-webkit-scrollbar {
+       width: .33rem;
+  }
+  .site-container:nth-child(1) {
+    margin: 3em auto;
+  }
+  .bullets-section {
+    float: left;
+  }
+  .float-in-portrait {
+    float: left;
+  }
+  .site-image {
+    width: 100%;
+  }
+}
+@media (max-width: 350px) {
+  .heading-board {
+    width: 98%;
+  }
+  .menu-links > a > strong {
+    font-size: 35%;
+  }
+  .site-info {
+    padding: 0;
+  }
+  .site-info > h5 {
+    font-size: 1.0em;
+  }
+  .site-info > p {
+    font-size: 0.6em;
+  }
+  .site-info-footer {
+    left: 1.5em;
+    width: 75%;
+  }
+  .site-info-label, .site-info-value {
+    font-size: 0.5em;
+  }
+  .resume-section {
+    font-size: 0.55em;
+  }
+  .resume-section > h3 {
+    font-size: 1.6em;
+  }
+  .resume-section-strong {
+    font-size: 1.3em;
+  }
+  .resume-heading-info {
+    font-size: 0.95em;
+  }
+  .resume-section > p {
+    font-size: 1.2em;
+  }
+  .float-in-portrait {
+    float: left;
+  }
+  .resume-bullets {
+    font-size: 0.6em;
+  }
+  .resume-certificate {
+    font-size: 1em;
+  }
+  .contact-container-right {
+    right: 5%;
+    text-align: right;
+  }
+  .site-image {
+    visibility: hidden;
+  }
 }
