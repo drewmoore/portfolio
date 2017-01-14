@@ -2,3 +2,4 @@
 node_modules/
 *.rdb
 app/static/img/sites/
+dump

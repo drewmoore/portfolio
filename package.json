@@ -8,7 +8,7 @@
   "bin": {"coveralls" : "./node_modules/coveralls/bin/coveralls.js"},
   "private": true,
   "scripts": {
-    "start"     : "node app/app.js",
+    "start"     : "DBNAME='portfolio' node app/app.js",
     "test"      : "mocha --recursive test",
     "testwatch" : "mocha -w --recursive test",
     "coveralls" : "./node_modules/mocha/bin/mocha test --recursive -r blanket -R mocha-lcov-reporter | coveralls"
