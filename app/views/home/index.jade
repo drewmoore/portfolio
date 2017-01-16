@@ -9,7 +9,8 @@ block content
               img.site-image(src=site.image)
               .site-links
                 a.web(href=site.url, target='_blank') Web
-                a.github(href=site.github, target='_blank') Github
+                if site.github && site.github.length
+                  a.github(href=site.github, target='_blank') Github
             .site-info
               h5= site.title
               p= site.description
@@ -21,5 +22,3 @@ block content
                 div.site-info-data-container
                   strong.site-info-label Host: &nbsp;
                   strong.site-info-value= site.host
-
-

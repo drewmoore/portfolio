@@ -3,3 +3,4 @@ node_modules/
 *.rdb
 app/static/img/sites/
 dump
+npm-debug.log
