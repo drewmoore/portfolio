@@ -34,7 +34,8 @@ Site.prototype.insert = function(fn){
   var self = this;
   sites.find({_id:self._id}).toArray(function(err, foundEntries){
     if(foundEntries.length === 0){
-      sites.insert(self, function(err, records){
+      sites.insert(self, function(err, data){
+        var records = !!data && data.result.ok ? data.ops : null;
         fn(err, records);
       });
     } else {

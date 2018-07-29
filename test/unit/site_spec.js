@@ -1,6 +1,5 @@
 'use strict';
 
-process.env.DBNAME = 'nodeTemplate-test';
 var expect = require('chai').expect;
 var fs = require('fs');
 var exec = require('child_process').exec;
