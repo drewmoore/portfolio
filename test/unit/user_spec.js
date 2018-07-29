@@ -1,6 +1,5 @@
 'use strict';
 
-process.env.DBNAME = 'nodeTemplate-test';
 var expect = require('chai').expect;
 var User;
 var Site;

@@ -4,3 +4,4 @@ node_modules/
 app/static/img/sites/
 npm-debug.log
 dump
+yarn-error.log
