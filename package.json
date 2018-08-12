@@ -2,15 +2,11 @@
   "name": "portfolio",
   "repository": "http://github.com/drewmoore/portfolio",
   "version": "2.0.0",
-  "bin": {
-    "coveralls": "./node_modules/coveralls/bin/coveralls.js"
-  },
   "private": true,
   "scripts": {
-    "start": "DBNAME='portfolio' node app/app.js",
-    "test": "DBNAME='portfolio-test' ./node_modules/mocha/bin/mocha --recursive test",
-    "testwatch": "./node_modules/mocha/bin/mocha -w --recursive test",
-    "coveralls": "./node_modules/mocha/bin/mocha test --recursive -r blanket -R mocha-lcov-reporter | coveralls"
+    "start": "node app/app.js",
+    "test": "PORTFOLIO_ENV=test ./node_modules/mocha/bin/mocha --recursive test",
+    "testwatch": "./node_modules/mocha/bin/mocha -w --recursive test"
   },
   "config": {
     "blanket": {
@@ -24,6 +20,7 @@
   "dependencies": {
     "bcrypt": "^3.0.0",
     "connect-redis": "^3.3.3",
+    "dotenv": "^6.0.0",
     "express": "3.5.3",
     "express-less": "^0.1.0",
     "express-session": "^1.15.6",
@@ -36,7 +33,6 @@
   "devDependencies": {
     "blanket": "^1.2.3",
     "chai": "^4.1.2",
-    "coveralls": "^3.0.2",
     "grunt": "^1.0.3",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-watch": "^1.1.0",
