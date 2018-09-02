@@ -19,5 +19,12 @@ The code behind my professional profile site.
 - `sudo systemctl enable redis-server`
 - `sudo systemctl start redis-server`
 
+- `echo '127.0.1.1 portfolio' | sudo tee --append /etc/hosts`
+- `sudo cp ./deploy/portfolio.conf /etc/nginx/conf.d/`
+- `sudo service nginx stop`
+- `sudo service nginx start`
+
+- `nvm exec npm start`
+
 ## NPM scripts
 Preface with `nvm exec`
