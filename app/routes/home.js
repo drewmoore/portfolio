@@ -8,7 +8,7 @@ exports.index = function(req, res){
   User.findById(req.session.userId, function(err, user){
     Site.index(function(records){
       var sites = _.sortBy(records, 'priority');
-      res.render('home/index', {title: 'Drew Moore: a Portfolio', user:user, sites:sites});
+      res.render('home/index', {title: 'Andrew Moore: a Portfolio', user:user, sites:sites});
     });
   });
 };

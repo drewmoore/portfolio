@@ -19,7 +19,7 @@ describe('User', function(){
 
   beforeEach(function(done){
     global.nss.db.dropDatabase(function(err, result){
-      u1 = new User({name:'Drew', email:'drew@nomail.com', password:'1234'});
+      u1 = new User({name:'Andrew', email:'drew@nomail.com', password:'1234'});
       u1.register(function(err, body){
         done();
       });

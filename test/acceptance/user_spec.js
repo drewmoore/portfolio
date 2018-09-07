@@ -21,7 +21,7 @@ describe('users', function(){
   });
   beforeEach(function(done){
     global.nss.db.dropDatabase(function(err, result){
-      u1 = new User({name:'Drew before each accept', email:'drewbeforeeach@nomail.com', password:'1234'});
+      u1 = new User({name:'Andrew before each accept', email:'drewbeforeeach@nomail.com', password:'1234'});
       u1.register(function(err, body){
         var s1 = new Site({title:'title before each'});
         s1.addUser(u1._id);
@@ -55,7 +55,7 @@ describe('users', function(){
     it('should register a new user', function(done){
       request(app)
       .post('/register')
-      .field('name', 'Drew accept')
+      .field('name', 'Andrew accept')
       .field('email', 'drewAcceptance@nomail.com')
       .field('password', '1234')
       .end(function(err, res){
@@ -66,7 +66,7 @@ describe('users', function(){
     it('should not register a duplicate user', function(done){
       request(app)
       .post('/register')
-      .field('name', 'Drew before each accept')
+      .field('name', 'Andrew before each accept')
       .field('email', 'drewbeforeeach@nomail.com')
       .field('password', '1234')
       .end(function(err, res){
